@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
+
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
@@ -8,13 +10,18 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('home'),
+        title: Text(
+          'ገበያ',
+          style: TextStyle(
+              fontSize: 20, fontWeight: FontWeight.bold, color: Colors.blue),
+        ),
       ),
       body: Center(
         child: Column(
           children: [Text("gebeya's home page")],
         ),
       ),
+      drawer: Drawer(),
     );
   }
 }
