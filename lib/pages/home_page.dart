@@ -12,24 +12,26 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     final dummyList = List.generate(20, (index) => productModel.item[0]);
     return Scaffold(
-        appBar: AppBar(
-          title: Text(
-            'ገበያ',
-            style: TextStyle(
-                fontSize: 20, fontWeight: FontWeight.bold, color: Colors.blue),
-          ),
+      appBar: AppBar(
+        title: Text(
+          'ገበያ',
+          style: TextStyle(
+              fontSize: 20, fontWeight: FontWeight.bold, color: Colors.blue),
         ),
-        body: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: ListView.builder(
-            itemCount: dummyList.length,
-            itemBuilder: (context, index) {
-              return ItemWidget(
-                key: ValueKey(dummyList[index].id), // Add this line
-                item: dummyList[index],
-              );
-            },
-          ),
-        ));
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: ListView.builder(
+          itemCount: dummyList.length,
+          itemBuilder: (context, index) {
+            return ItemWidget(
+              key: ValueKey(dummyList[index].id), // Add this line
+              item: dummyList[index],
+            );
+          },
+        ),
+      ),
+      drawer: mydrawer(),
+    );
   }
 }
