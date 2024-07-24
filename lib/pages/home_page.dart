@@ -5,6 +5,8 @@ import 'package:flutter/services.dart';
 import 'dart:convert';
 import 'package:gebeya_app/widgets/drawer.dart';
 import 'package:gebeya_app/widgets/itemWidget.dart';
+import 'package:gebeya_app/widgets/home_widget/catalogueHeader.dart';
+import 'package:gebeya_app/widgets/home_widget/catalogueList.dart';
 
 class HomePage extends StatefulWidget {
   @override
