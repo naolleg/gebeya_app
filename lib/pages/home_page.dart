@@ -53,12 +53,51 @@ class _HomePageState extends State<HomePage> {
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: (ProductModel.item != null && ProductModel.item.isNotEmpty)
-            ? ListView.builder(
-                itemCount: ProductModel.item.length,
-                itemBuilder: (context, index) => ItemWidget(
-                  item: ProductModel.item[index],
-                  key: ValueKey(ProductModel.item[index].id),
+            // ? ListView.builder(
+            //     itemCount: ProductModel.item.length,
+            //     itemBuilder: (context, index) => ItemWidget(
+            //       item: ProductModel.item[index],
+            //       key: ValueKey(ProductModel.item[index].id),
+            //     ),
+            ? GridView.builder(
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                  mainAxisSpacing: 16,
+                  crossAxisSpacing: 16,
                 ),
+                itemBuilder: (context, index) {
+                  final item = ProductModel.item[index];
+                  return Card(
+                      clipBehavior: Clip.antiAlias,
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10)),
+                      child: GridTile(
+                        header: Container(
+                          child: Text(
+                            item.name,
+                            style: TextStyle(color: Colors.white),
+                          ),
+                          padding: const EdgeInsets.all(12),
+                          decoration: BoxDecoration(
+                            color: Colors.deepPurple,
+                          ),
+                        ),
+                        child: Image.network(
+                          item.imageurl,
+                        ),
+                        footer: Container(
+                          child: Text(
+                            item.price.toString(),
+                            style: TextStyle(color: Colors.white),
+                          ),
+                          padding: const EdgeInsets.all(12),
+                          decoration: BoxDecoration(
+                            color: Colors.black,
+                          ),
+                        ),
+                      ));
+                },
+                itemCount: ProductModel.item.length,
               )
             : Center(
                 child: CircularProgressIndicator(),
